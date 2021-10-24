@@ -15,7 +15,13 @@ class CreateKultaTable extends Migration
     {
         Schema::create('kulta', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_akun');
+            $table->string('ceramah');
+            $table->text('keterangan');
+            $table->string('penanggung_jawab');
             $table->timestamps();
+
+            $table->foreign('id_akun')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

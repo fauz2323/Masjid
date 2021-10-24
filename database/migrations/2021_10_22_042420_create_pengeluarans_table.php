@@ -15,7 +15,14 @@ class CreatePengeluaransTable extends Migration
     {
         Schema::create('pengeluarans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_akun');
+            $table->string('penanggung_jawab');
+            $table->integer('pengeluaran');
+            $table->string('keperluan');
             $table->timestamps();
+
+            $table->foreign('id_akun')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

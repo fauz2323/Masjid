@@ -15,7 +15,13 @@ class CreateSholatJumatsTable extends Migration
     {
         Schema::create('sholat_jumats', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_akun');
+            $table->string('imam');
+            $table->text('keterangan');
+            $table->string('penanggung_jawab');
             $table->timestamps();
+            $table->foreign('id_akun')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

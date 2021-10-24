@@ -15,7 +15,14 @@ class CreatePengajiansTable extends Migration
     {
         Schema::create('pengajians', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_akun');
+            $table->string('guru');
+            $table->text('keterangan');
+            $table->string('penanggung_jawab');
             $table->timestamps();
+
+            $table->foreign('id_akun')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

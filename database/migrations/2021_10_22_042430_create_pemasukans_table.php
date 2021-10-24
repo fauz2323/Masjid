@@ -15,7 +15,14 @@ class CreatePemasukansTable extends Migration
     {
         Schema::create('pemasukans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_akun');
+            $table->string('penanggung_jawab');
+            $table->integer('pemasukan');
+            $table->string('keterangan');
             $table->timestamps();
+
+            $table->foreign('id_akun')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 
