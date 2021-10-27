@@ -42,4 +42,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all of the kultum for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function kultum()
+    {
+        return $this->hasMany(Kultum::class,'id_akun','id');
+    }
+
+    public function ceramahAgama()
+    {
+        return $this->hasMany(CeramahAgama::class,'id_akun','id');
+    }
+
+    public function pemasukan()
+    {
+        return $this->hasMany(Pemasukan::class,'id_akun','id');
+    }
+
+    public function pengeluaran()
+    {
+        return $this->hasMany(Pengeluaran::class,'id_akun','id');
+    }
+
+    public function sholatJumat()
+    {
+        return $this->hasMany(SholatJumat::class,'id_akun','id');
+    }
 }
