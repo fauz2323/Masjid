@@ -47,7 +47,7 @@ class KultumController extends Controller
             'keterangan'=>$request->keterangan,
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('kultum-index');
     }
 
     public function updateview($id)

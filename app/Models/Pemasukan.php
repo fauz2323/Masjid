@@ -9,6 +9,13 @@ class Pemasukan extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id_akun',
+        'penanggung_jawab',
+        'pemasukan',
+        'keterangan',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class,'id_akun','id');

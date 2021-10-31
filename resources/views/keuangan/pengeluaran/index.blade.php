@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Ceramah</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Pengeluaran Masjid</h6>
         </div>
         <div class="card-body">
             {{-- <div class="">
@@ -18,9 +18,9 @@
                     <thead>
                         <tr>
                             <th width="30px">no</th>
-                            <th>Penceramah</th>
                             <th>Penanggung Jawab</th>
                             <th>Keterangan</th>
+                            <th>pengeluaran</th>
                             <th>Input by</th>
                             <th>aksi</th>
                         </tr>
@@ -46,16 +46,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('kultum-stre') }}" method="post">
+            <form action="{{ route('pengeluaran-stre') }}" method="post">
 
             <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Penceramah</label>
-                        <input type="text" class="form-control" name="ceramah" id="exampleInputEmail1"  aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1">Pengeluaran</label>
+                        <input type="text" class="form-control" name="pengeluaran" id="exampleInputEmail1"  aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <label for="exampleFormControlTextarea1">Keterangan</label>
                         <textarea class="form-control" name="keterangan" id="exampleFormControlTextarea1" rows="3"></textarea>
                       </div>
                     <div class="form-group">
@@ -89,15 +89,15 @@
                         }
                     },
                     {
-                        data: 'ceramah',
-                        name: 'ceramah'
-                    },
-                    {
                         data: 'penanggung_jawab',
                         name: 'penanggung_jawab'
                     }, {
                         data: 'keterangan',
                         name: 'keterangan'
+                    },
+                    {
+                        data: 'pengeluaran',
+                        name: 'pengeluaran'
                     },
                     {
                         data: 'user.name',

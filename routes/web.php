@@ -4,6 +4,7 @@ use App\Http\Controllers\Web\KultumController;
 use App\Http\Controllers\Web\PemasukanController;
 use App\Http\Controllers\Web\PengajianCntroller;
 use App\Http\Controllers\Web\PengeluaranController;
+use App\Http\Controllers\Web\ShlatJumatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +49,13 @@ Route::get('pengeluaran/{id}/edit',[PengeluaranController::class,'updateview'])-
 Route::post('pengeluaranStore',[PengeluaranController::class,'store'])->name('pengeluaran-stre');
 Route::get('pengeluaranDelete/{id}',[PengeluaranController::class,'delete'])->name('pengeluaran-delete');
 Route::post('pengeluaranEdit/{id}',[PengeluaranController::class, 'updateStore'])->name('update-pengeluaran');
+
+Route::get('sholatJumat',[ShlatJumatController::class, 'index'])->name('sholatJumat-index');
+Route::get('sholatJumat/{id}/edit',[ShlatJumatController::class,'updateview'])->name('sholatJumat-edit');
+Route::post('sholatJumatStore',[ShlatJumatController::class,'store'])->name('sholatJumat-stre');
+Route::get('sholatJumatDelete/{id}',[ShlatJumatController::class,'delete'])->name('sholatJumat-delete');
+Route::post('sholatJumatEdit/{id}',[ShlatJumatController::class, 'updateStore'])->name('update-sholatJumat');
+
 
 Route::middleware(['role:admin', 'role:staff'])->group(function () {
 

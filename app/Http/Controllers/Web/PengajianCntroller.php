@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Web;
 
+use Yajra\DataTables\Facades\DataTables;
 use App\Http\Controllers\Controller;
+use App\Models\Pengajian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengajianCntroller extends Controller
 {
@@ -14,7 +17,18 @@ class PengajianCntroller extends Controller
 
     public function index(Request $request)
     {
-
+        if ($request->ajax()) {
+            $data = Pengajian::with('user')->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="/pengajianDelete/' . $row->id . '" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-danger btn-sm editCustomer">Delete</a> <a href="/pengajian/' . $row->id . '/edit" data-toggle="tooltip"  data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-danger btn-sm editCustomer">Edit</a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('kegiatan.pengajian.index');
     }
 
     public function add(Request $request)
@@ -24,21 +38,41 @@ class PengajianCntroller extends Controller
 
     public function store(Request $request)
     {
-        # code...
+        $user = Auth::user();
+
+        $data = Pengajian::create([
+            'id_akun'=>$user->id,
+            'guru'=>$request->guru,
+            'penanggung_jawab'=>$request->pj,
+            'keterangan'=>$request->keterangan,
+        ]);
+
+        return redirect()->route('pengajian-index');
     }
 
-    public function update()
+    public function updateview($id)
     {
-        # code...
+        $data = Pengajian::findOrFail($id);
+        return view('kegiatan.pengajian.edit',compact('data'));
     }
 
-    public function updateStore(Request $request)
+    public function updateStore(Request $request,$id)
     {
-        # code...
+       $update = Pengajian::findOrFail($id);
+       $update->update([
+        'guru'=>$request->guru,
+        'penanggung_jawab'=>$request->pj,
+        'keterangan'=>$request->keterangan,
+       ]);
+
+       return redirect()->route('pengajian-index');
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request,$id)
     {
-        # code...
+        $data = Pengajian::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('pengajian-index');
     }
 }
