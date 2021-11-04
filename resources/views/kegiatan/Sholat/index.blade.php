@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pengeluaran Masjid</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Sholat Jumat</h6>
         </div>
         <div class="card-body">
             {{-- <div class="">
@@ -18,9 +18,9 @@
                     <thead>
                         <tr>
                             <th width="30px">no</th>
+                            <th>Imam</th>
                             <th>Penanggung Jawab</th>
-                            <th>Keterangan</th>
-                            <th>pengeluaran</th>
+                            <th>WaktuSholat</th>
                             <th>Input by</th>
                             <th>aksi</th>
                         </tr>
@@ -41,22 +41,22 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Waktu Sholat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('pengeluaran-stre') }}" method="post">
+            <form action="{{ route('shalat-stre') }}" method="post">
 
             <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Pengeluaran</label>
-                        <input type="text" class="form-control" name="pengeluaran" id="exampleInputEmail1"  aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1">Imam</label>
+                        <input type="text" class="form-control" name="imam" id="exampleInputEmail1"  aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Waktu Sholat</label>
+                        <textarea class="form-control" name="WaktuSholat" id="exampleFormControlTextarea1" rows="3"></textarea>
                       </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Penanggung Jawab</label>
@@ -89,15 +89,15 @@
                         }
                     },
                     {
+                        data: 'imam',
+                        name: 'imam'
+                    },
+                    {
                         data: 'penanggung_jawab',
                         name: 'penanggung_jawab'
                     }, {
-                        data: 'keperluan',
-                        name: 'keperluan'
-                    },
-                    {
-                        data: 'pengeluaran',
-                        name: 'pengeluaran'
+                        data: 'WaktuSholat',
+                        name: 'WaktuSholat'
                     },
                     {
                         data: 'user.name',

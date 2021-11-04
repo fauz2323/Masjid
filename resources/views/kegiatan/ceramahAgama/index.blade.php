@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pengeluaran Masjid</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Ceramah</h6>
         </div>
         <div class="card-body">
             {{-- <div class="">
@@ -18,9 +18,9 @@
                     <thead>
                         <tr>
                             <th width="30px">no</th>
+                            <th>Penceramah</th>
                             <th>Penanggung Jawab</th>
-                            <th>Keterangan</th>
-                            <th>pengeluaran</th>
+                            <th>Tema</th>
                             <th>Input by</th>
                             <th>aksi</th>
                         </tr>
@@ -46,13 +46,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('pengeluaran-stre') }}" method="post">
+            <form action="{{ route('kultum-stre') }}" method="post">
 
             <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Pengeluaran</label>
-                        <input type="text" class="form-control" name="pengeluaran" id="exampleInputEmail1"  aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1">Penceramah</label>
+                        <input type="text" class="form-control" name="ustad" id="exampleInputEmail1"  aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keterangan</label>
@@ -89,15 +89,15 @@
                         }
                     },
                     {
+                        data: 'ustad',
+                        name: 'ustad'
+                    },
+                    {
                         data: 'penanggung_jawab',
                         name: 'penanggung_jawab'
                     }, {
-                        data: 'keperluan',
-                        name: 'keperluan'
-                    },
-                    {
-                        data: 'pengeluaran',
-                        name: 'pengeluaran'
+                        data: 'keterangan',
+                        name: 'keterangan'
                     },
                     {
                         data: 'user.name',

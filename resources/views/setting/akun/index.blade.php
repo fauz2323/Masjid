@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pengeluaran Masjid</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Akun</h6>
         </div>
         <div class="card-body">
             {{-- <div class="">
@@ -18,10 +18,8 @@
                     <thead>
                         <tr>
                             <th width="30px">no</th>
-                            <th>Penanggung Jawab</th>
-                            <th>Keterangan</th>
-                            <th>pengeluaran</th>
-                            <th>Input by</th>
+                            <th>nama</th>
+                            <th>jabatan</th>
                             <th>aksi</th>
                         </tr>
                     </thead>
@@ -46,13 +44,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('pengeluaran-stre') }}" method="post">
+            <form action="{{ route('pemasukan-stre') }}" method="post">
 
             <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Pengeluaran</label>
-                        <input type="text" class="form-control" name="pengeluaran" id="exampleInputEmail1"  aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1">Pemasukan</label>
+                        <input type="text" class="form-control" name="pemasukan" id="exampleInputEmail1"  aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keterangan</label>
@@ -89,19 +87,11 @@
                         }
                     },
                     {
-                        data: 'penanggung_jawab',
-                        name: 'penanggung_jawab'
+                        data: 'name',
+                        name: 'name'
                     }, {
-                        data: 'keperluan',
-                        name: 'keperluan'
-                    },
-                    {
-                        data: 'pengeluaran',
-                        name: 'pengeluaran'
-                    },
-                    {
-                        data: 'user.name',
-                        name: 'user.name'
+                        data: 'roles[0].name',
+                        name: 'roles[0].name'
                     },
                     {
                         data: 'action',
