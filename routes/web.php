@@ -46,6 +46,7 @@ Route::group(['middleware' => ['role:admin|staff']], function () {
     Route::post('pemasukanStore',[PemasukanController::class,'store'])->name('pemasukan-stre');
     Route::get('pemasukanDelete/{id}',[PemasukanController::class,'delete'])->name('pemasukan-delete');
     Route::post('pemasukanEdit/{id}',[PemasukanController::class, 'updateStore'])->name('update-pemasukan');
+    Route::get('downloadPemasukan',[PemasukanController::class, 'download'])->name('download-pemasukan');
 
     Route::get('pengajian',[PengajianCntroller::class, 'index'])->name('pengajian-index');
     Route::get('pengajian/{id}/edit',[PengajianCntroller::class,'updateview'])->name('pengajian-edit');
@@ -58,6 +59,7 @@ Route::group(['middleware' => ['role:admin|staff']], function () {
     Route::post('pengeluaranStore',[PengeluaranController::class,'store'])->name('pengeluaran-stre');
     Route::get('pengeluaranDelete/{id}',[PengeluaranController::class,'delete'])->name('pengeluaran-delete');
     Route::post('pengeluaranEdit/{id}',[PengeluaranController::class, 'updateStore'])->name('update-pengeluaran');
+    Route::get('downloadPengeluaran',[PengeluaranController::class,'download'])->name('download-pengeluran');
 
     Route::get('sholatJumat',[ShlatJumatController::class, 'index'])->name('sholatJumat-index');
     Route::get('sholatJumat/{id}/edit',[ShlatJumatController::class,'updateview'])->name('sholatJumat-edit');

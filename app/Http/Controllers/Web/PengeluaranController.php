@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Exports\PengeluaranExport;
 use App\Http\Controllers\Controller;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
 class PengeluaranController extends Controller
@@ -74,5 +76,10 @@ class PengeluaranController extends Controller
         $data->delete();
 
         return redirect()->route('pengeluaran-index');
+    }
+
+    public function download()
+    {
+        return Excel::download(new PengeluaranExport, 'pengeluaran.xlsx');
     }
 }
