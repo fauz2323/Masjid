@@ -30,10 +30,10 @@ class AdminSeeder extends Seeder
         $staff = User::create([
             'name'=>'staff',
             'email'=>'staff@admin.com',
-            'password'=>Hash::make('staff')
+            'password'=>Hash::make('dkm')
         ]);
 
-        $staffRole = Role::create(['name' => 'staff']);
+        $staffRole = Role::create(['name' => 'dkm']);
 
         $staff->assignRole($staffRole);
     }
