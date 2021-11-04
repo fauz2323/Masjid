@@ -37,7 +37,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Aplikasi Masjid</div>
             </a>
 
             <!-- Divider -->
@@ -105,7 +105,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('add') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Add akun</span></a>
+                    <span>Add DKM</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -224,7 +224,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Dendy Pratama@2021</span>
                     </div>
                 </div>
             </footer>
